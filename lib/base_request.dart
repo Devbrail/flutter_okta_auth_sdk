@@ -16,19 +16,23 @@ class BaseRequest {
 
   String? userAgentTemplate;
 
+  String? tokenEndpoint;
+  String? authorizationEndpoint;
+
   bool requireHardwareBackedKeyStore;
 
   String issuer;
 
-  BaseRequest(
-      {required this.clientId,
-      required this.issuer,
-      required this.discoveryUrl,
-      required this.endSessionRedirectUri,
-      required this.redirectUrl,
-      required this.scopes,
-      this.userAgentTemplate,
-      this.requireHardwareBackedKeyStore = false});
+  BaseRequest({required this.clientId,
+    required this.issuer,
+    required this.discoveryUrl,
+    required this.endSessionRedirectUri,
+    required this.redirectUrl,
+    required this.scopes,
+    this.userAgentTemplate,
+    this.tokenEndpoint,
+    this.authorizationEndpoint,
+    this.requireHardwareBackedKeyStore = false});
 }
 
 Map<String, Object?> convertBaseRequestToMap(BaseRequest baseRequest) {
@@ -41,5 +45,9 @@ Map<String, Object?> convertBaseRequestToMap(BaseRequest baseRequest) {
     'scopes': baseRequest.scopes,
     'userAgentTemplate': baseRequest.userAgentTemplate,
     'requireHardwareBackedKeyStore': baseRequest.requireHardwareBackedKeyStore,
+    'requireHardwareBackedKeyStore': baseRequest.requireHardwareBackedKeyStore,
+    'requireHardwareBackedKeyStore': baseRequest.requireHardwareBackedKeyStore,
+    'tokenEndpoint': baseRequest.tokenEndpoint,
+    'authorizationEndpoint': baseRequest.authorizationEndpoint,
   };
 }
