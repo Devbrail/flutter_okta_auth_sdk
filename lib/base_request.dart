@@ -18,6 +18,7 @@ class BaseRequest {
 
   String? tokenEndpoint;
   String? authorizationEndpoint;
+  String? endSessionEndpoint;
 
   bool requireHardwareBackedKeyStore;
 
@@ -32,6 +33,7 @@ class BaseRequest {
     this.userAgentTemplate,
     this.tokenEndpoint,
     this.authorizationEndpoint,
+    this.endSessionEndpoint,
     this.requireHardwareBackedKeyStore = false});
 }
 
@@ -49,5 +51,6 @@ Map<String, Object?> convertBaseRequestToMap(BaseRequest baseRequest) {
     'requireHardwareBackedKeyStore': baseRequest.requireHardwareBackedKeyStore,
     'tokenEndpoint': baseRequest.tokenEndpoint,
     'authorizationEndpoint': baseRequest.authorizationEndpoint,
+    'endSessionEndpoint': baseRequest.endSessionEndpoint,
   };
 }

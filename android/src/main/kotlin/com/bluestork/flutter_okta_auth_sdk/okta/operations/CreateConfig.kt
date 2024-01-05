@@ -18,6 +18,7 @@ fun createConfig(arguments: Map<String, Any>, context: Context) {
         val custConfig = CustomConfiguration.Builder()
             .tokenEndpoint(params.tokenEndpoint!!)
             .authorizationEndpoint(params.authorizationEndpoint!!)
+            .endSessionEndpoint(params.endSessionEndpoint!!)
             .create()
         var config = OIDCConfig.Builder()
             .clientId(params.clientId)
@@ -26,6 +27,7 @@ fun createConfig(arguments: Map<String, Any>, context: Context) {
             .scopes(*params.scopes.toTypedArray())
             .customConfiguration(custConfig)
             .create()
+
 
         val webClient = Okta.WebAuthBuilder()
             .withConfig(config)
@@ -65,5 +67,6 @@ private fun processOktaRequestArguments(arguments: Map<String, Any>): OktaReques
         userAgentTemplate = (arguments["userAgentTemplate"] as String?) ?: "",
         tokenEndpoint = (arguments["tokenEndpoint"] as String?) ?: "",
         authorizationEndpoint = (arguments["authorizationEndpoint"] as String?) ?: "",
+        endSessionEndpoint = (arguments["endSessionEndpoint"] as String?) ?: "",
     )
 }

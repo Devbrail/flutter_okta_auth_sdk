@@ -8,7 +8,8 @@ data class OktaRequestParameters(
     var scopes: ArrayList<String>,
     var userAgentTemplate: String = "",
     var requireHardwareBackedKeyStore: Boolean = false,
-    var tokenEndpoint: String,
-    var authorizationEndpoint: String
+    var tokenEndpoint: String?,
+    var authorizationEndpoint: String?,
+    var endSessionEndpoint: String?
 
 )
